@@ -1,0 +1,32 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>This is Products Page</h1>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Tag of the product</th>
+    </tr>
+    
+    {% for products in prod %}
+    
+    <tr>
+        <td><a href="{% url 'products' products.id %}">View</a> </td>
+        <td>{{products.Name}}</td>
+        <td>{{products.price}}</td>
+        <td>{{products.category}}</td>
+        <td>{{products.tags}}
+    </tr>
+    
+    {% endfor %}
+
+
+<a href="{% url 'home' %}"><button type="button" class="btn btn-success">Home</button></a>
+
+
+{% endblock %}
